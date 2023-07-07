@@ -1,0 +1,52 @@
+version: '3'
+services:
+  web-app:
+    build: ./webapp/
+    ports:
+      - "5000"
+    depends_on:
+      - redis-master
+    networks:
+      - backend
+      - front
+
+  nginx:
+    image: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - web-app
+    networks:
+      - front
+    volumes:
+      - './nginx/default.conf:/etc/nginx/conf.d/default.conf'
+
+  redis-master:
+    image: redis
+    volumes:
+      - redis_master:/data
+    ports:
+      - '6379'
+    networks:
+      - redis_network
+      - backend
+
+  redis-slave:
+    image: redis:latest
+    volumes:
+      - redis_slave:/data
+    ports:
+      - '6379'
+    command: redis-server --slaveof redis-master 6379
+    networks:
+      - redis_network
+
+volumes:
+  redis_master:
+  redis_slave:
+  nginx:
+
+networks:
+  front: {}
+  backend: {}
+  redis_network: {}
