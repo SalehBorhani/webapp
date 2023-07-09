@@ -12,3 +12,6 @@ For getting data:
 ```
 curl -H "Content-Type: application/json" -d '{"key": "key1"}' localhost:8080/get
 ```
+
+# sentinel deployment
+* come [here](./redis-sentinel/)

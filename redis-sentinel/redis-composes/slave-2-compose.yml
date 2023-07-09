@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  slave2:
+    image: 'docker.iranrepo.ir/redis:6.0-alpine3.18'
+    networks:
+      - compose-net
+    ports:
+      - '36379:6379'
+    volumes:
+      - ./slave.conf:/usr/local/etc/redis.conf
+    command: ["redis-server" , "/usr/local/etc/redis.conf"]
+
+networks:
+  compose-net:
+    name: sentinel
