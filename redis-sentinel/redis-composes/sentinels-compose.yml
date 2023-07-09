@@ -1,0 +1,50 @@
+version: '2'
+services:
+  sentinel1:
+    image: 'docker.iranrepo.ir/bitnami/redis-sentinel:6.2.12'
+    environment:
+    # master hostname or ip
+      - REDIS_MASTER_HOST=master-redis
+      - REDIS_SENTINEL_QUORUM=2
+      - REDIS_SENTINEL_PORT_NUMBER=26379
+      - REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS=5000
+      - REDIS_SENTINEL_FAILOVER_TIMEOUT=10000
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '1001:26379'
+    networks:
+      - compose-net
+
+  sentinel2:
+    image: 'docker.iranrepo.ir/bitnami/redis-sentinel:6.2.12'
+    environment:
+      - REDIS_MASTER_HOST=master-redis
+      - REDIS_SENTINEL_QUORUM=2
+      - REDIS_SENTINEL_PORT_NUMBER=26379
+      - REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS=5000
+      - REDIS_SENTINEL_FAILOVER_TIMEOUT=10000
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '1002:26379'
+    networks:
+      - compose-net
+
+  sentinel3:
+    image: 'docker.iranrepo.ir/bitnami/redis-sentinel:6.2.12'
+    environment:
+      - REDIS_MASTER_HOST=master-redis
+      - REDIS_SENTINEL_QUORUM=2
+      - REDIS_SENTINEL_PORT_NUMBER=26379
+      - REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS=5000
+      - REDIS_SENTINEL_FAILOVER_TIMEOUT=10000
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '1003:26379'
+    networks:
+      - compose-net
+
+
+networks:
+  compose-net:
+    name: sentinel
+    external: true
