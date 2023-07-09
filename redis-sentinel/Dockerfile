@@ -1,4 +1,4 @@
-FROM python:3.12.0a5-bullseye
+FROM python:alpine
 RUN mkdir -p /usr/src/api
 WORKDIR /usr/src/api
 COPY ./req.txt ./

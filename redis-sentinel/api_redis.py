@@ -52,4 +52,4 @@ async def redis_connect():
 
 
 if __name__ == '__main__':
-        uvicorn.run(api, port=80, host='0.0.0.0' )
+        uvicorn.run(api, port=80, host='0.0.0.0')

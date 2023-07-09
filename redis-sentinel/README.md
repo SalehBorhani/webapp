@@ -5,7 +5,7 @@
 
 * 3 nodes with redis and sentinel , one of them has an api to accept request
 * the api gets the master from sentinels whenever it wants to interact with redis 
-* the files will be added
+* redis master , slave and sentinels composes and configs are [here](./redis-composes/)
 # node1
 ```
 docker compose -f ~/python_api/api-compose.yml up -d 
@@ -25,5 +25,6 @@ docker compose  -f ~/sentinels-compose.yml  up -d
 
 # test
 ```
-NOT INCLUDED YET
+curl -X POST -H "Content-Type: application/json" -d '{"key": "ali", "value":"kocholo"}' localhost:8080/set
+
 ```
