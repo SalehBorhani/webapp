@@ -34,7 +34,9 @@ curl localhost:8080/get/ali
 ```
 
 * this is for local test purposes , 3 nodes are needed for a robust deployment
- 
+
     ![./scenario.png](./scenario.png)
     
     * PS: deploy the api on all nodes , its not in the picture
+
+* make a pull request if you see it fit this scenario
