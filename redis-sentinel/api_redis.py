@@ -41,7 +41,7 @@ async def  redis_get(request : Request , key: str):
     return {"value": value }
 
 async def redis_connect():
-    # can give hostname and ports as env variables to dockerfile
+    # can give hostname and ports as env variables to dockerfile as well (ideal way)
     sentinel_instance = Sentinel([("sentinel1" , 26379),("sentinel2" , 26379),("sentinel3" , 26379)])
     host , port = sentinel_instance.discover_master('mymaster')
     try:
