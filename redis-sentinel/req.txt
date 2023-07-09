@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+redis==3.5.3
+redis-sentinel==1.0.1
+

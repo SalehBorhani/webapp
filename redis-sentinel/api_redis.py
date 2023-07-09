@@ -42,7 +42,7 @@ async def  redis_get(request : Request , key: str):
 
 async def redis_connect():
     # can give hostname and ports as env variables to dockerfile
-    sentinel_instance = Sentinel([("localhost" , 1001),("localhost" , 1002),("localhost" , 1003)])
+    sentinel_instance = Sentinel([("sentinel1" , 26379),("sentinel2" , 26379),("sentinel3" , 26379)])
     host , port = sentinel_instance.discover_master('mymaster')
     try:
         redis_server = redis.Redis(host , port)
@@ -52,4 +52,4 @@ async def redis_connect():
 
 
 if __name__ == '__main__':
-        uvicorn.run(api, port=8080, host='0.0.0.0' )
+        uvicorn.run(api, port=80, host='0.0.0.0' )
