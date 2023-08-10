@@ -3,6 +3,10 @@
 
 ![Cloud Computing - 1st Competition_3](https://github.com/SalehBorhani/webapp/assets/95637102/ff7fb360-ab7d-46d5-af29-c521cac421b1)
 
+# sentinel deployment
+* come [here](./redis-sentinel/)
+
+
 # How to test
 For send data to database:
 ```
@@ -13,5 +17,3 @@ For getting data:
 curl -H "Content-Type: application/json" -d '{"key": "key1"}' localhost:8080/get
 ```
 
-# sentinel deployment
-* come [here](./redis-sentinel/)
